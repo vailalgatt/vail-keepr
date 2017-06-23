@@ -1,4 +1,4 @@
-let Boards = require('../models/vault')
+let Vaults = require('../models/vault')
 
 export default {
   userVaults: {
