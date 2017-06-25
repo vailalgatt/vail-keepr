@@ -4,7 +4,7 @@ let env = {
 	PORT: 3000,
 	DBPROTOCOL: 'mongodb',
 	DBUSERNAME: 'student',
-	DBPASSWORD: 'vail',
+	DBPASSWORD: 'student',
 	DBHOST: 'ds135592.mlab.com:35592',
 	DBNAME: 'keepr',
 	SERVERNAME: 'dev-server'
