@@ -1,6 +1,16 @@
 import axios from 'axios'
+import router from '../router'
+import Vue from 'vue'
+import Vuex from 'vuex'
 
-let api = axios.create({
+Vue.use(Vuex)
+
+// let api = axios.create({
+//   baseURL: 'http://localhost:3000/api/',
+//   timeout: 2000,
+//   withCredentials: true
+// })
+let auth = axios.create({
   baseURL: 'http://localhost:3000/api/',
   timeout: 2000,
   withCredentials: true
@@ -11,6 +21,7 @@ let state = {
   user: {},
   myVaults: {},
   myKeeps: {},
+  error: {},
   //Dummy Data
   keeps: [{
     title: 'Learn to Draw',
@@ -61,19 +72,88 @@ let state = {
     viewCount: 900,
     author: 'JimyJonJones'
   }],
-  error: {}
 }
 
-let handleError = (err) => {
+let handleError = (state, err) => {
   state.error = err
 }
 
-export default {
+export default new Vuex.Store({
   // ALL DATA LIVES IN THE STATE
   state,
   // ACTIONS ARE RESPONSIBLE FOR MANAGING ALL ASYNC REQUESTS
+  mutations: {
+    setKeeps(state, keeps) {
+      state.keeps = keeps
+    },
+    setActiveKeeps(state, activeKeeps) {
+      state.activeKeeps = activeKeeps
+    },
+    user(state, user) {
+      state.user = user
+    }
+  },
+
   actions: {
+    getKeeps({ commit, dispatch }) {
+      api('userkeeps')
+        .then(res => {
+          commit('setKeeps', res.data.data)
+        })
+        .catch(handleError)
+    },
+    getKeep({ commit, dispatch }, id) {
+      api('keeps/' + id)
+        .then(res => {
+          commit('setActiveKeeps', res.data.data)
+        })
+        .catch(handleError)
+    },
+    createKeeps({ commit, dispatch }, keep) {
+      api.post('keeps/', keep)
+        .then(res => {
+          dispatch('getKeeps')
+        })
+        .catch(handleError)
+    },
+    login({ commit, dispatch }, user) {
+      auth.post('login', user)
+        .then(res => {
+          console.log(res)
+          if (res.data.error) {
+          }
+          commit('user', res.data.data)
+          router.push('/keeps')
+        })
+        .catch(handleError)
+    },
+    register({ commit, dispatch }, user) {
+      auth.post('register', user)
+        .then(res => {
+          console.log(res)
+          if (res.data.error) {
+            return handleError(res.data.error)
+          }
+          //LETS REDIRECT THE PAGE
+          state.user = res.data//commit
+          router.push('/keeps')
+        })
+        .catch(handleError)
+    },
+    getAuth() {
+      auth('authenticate')
+        .then(res => {
+          if (!res.data.data) {
+            return router.push('/login')
+          }
+          state.user = res.data.data
+          router.push('/keeps')
+        }).catch(err => {
+          router.push('/login')
+        })
+    },
+    clearError() {
+      state.error = {}
+    }
   }
-
-}
-
+})
