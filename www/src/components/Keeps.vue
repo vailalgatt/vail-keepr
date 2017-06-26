@@ -6,10 +6,8 @@
                     <h1 class="keepNav">Keeps</h1>
                 </div>
                 <form class="navbar-form" role="search">
-                    <div class="input-group">
-                        <div class="col-xs-12">
+                    <div class="input-group">    
                             <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
-                        </div>
                         <div class="input-group-btn">
                             <button class="btn btn-default" type="submit">
                                 <i class="glyphicon glyphicon-search"></i>
@@ -24,19 +22,19 @@
                 </ul>
             </div>
         </nav>
-            <div class="col-xs-4" v-for="keep in keeps">
-                <router-link :to=" '/keeps/'+ keep._id">
-                    <div class="well">
-                        <h1>{{keep.title}}</h1>
-                        <img :src='keep.imgUrl'>
-                        <h3>{{keep.name}}</h3>
-                        <p>{{keep.body}}</p>
-                        <!--<button class="fa fa-trash" aria-hidden="true" @click="addKeep()"></button>-->
-                    </div>
-                </router-link>
-                </li>
-            </div>
+        <div class="col-xs-4" v-for="keep in keeps">
+            <router-link :to=" '/keeps/'+ keep._id">
+                <div class="well">
+                    <h1>{{keep.title}}</h1>
+                    <img :src='keep.imgUrl'>
+                    <h3>{{keep.name}}</h3>
+                    <p>{{keep.body}}</p>
+                    <!--<button class="fa fa-trash" aria-hidden="true" @click="addKeep()"></button>-->
+                </div>
+            </router-link>
+            </li>
         </div>
+    </div>
 </template>
 
 
@@ -72,8 +70,8 @@ export default {
 input {
     color: black;
     font-family: 'Open Sans', sans-serif;
-    margin-bottom: 10px;
     font-size: 5px;
+    margin-top: 10px;
 }
 
 button {
@@ -81,6 +79,7 @@ button {
 }
 
 img {
-    width: 20%
+    width: 40%;
+    height: 25%;
 }
 </style>
