@@ -15,11 +15,11 @@
                         </div>
                     </div>
                 </form>
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a class="logoutStyle" style="color:black; cursor: pointer" @click="logout(this.user)">Logout</a>
-                    </li>
-                </ul>
+                <div class="nav navbar-nav navbar-right">
+                    <div class="col-xs-12">
+                        <button class="btn btn-primary" id="logoutStyle"@click="logout(this.user)">Logout</button>
+                    </div>
+                </div>
             </div>
         </nav>
         <div class="col-xs-4" v-for="keep in keeps">
@@ -29,7 +29,11 @@
                     <img :src='keep.imgUrl'>
                     <h3>{{keep.name}}</h3>
                     <p>{{keep.body}}</p>
-                    <!--<button class="fa fa-trash" aria-hidden="true" @click="addKeep()"></button>-->
+                    <div class="row" id="social">
+                        <span class="fa fa-share-alt col-xs-4" aria-hidden="true"></i> </span>
+                        <span class="fa fa-thumb-tack col-xs-4" aria-hidden="true"></i> </span>
+                        <span class="fa fa-eye col-xs-4" aria-hidden="true"></i> </span>
+                    </div>
                 </div>
             </router-link>
             </li>
@@ -39,50 +43,59 @@
 
 
 <script>
-export default {
-    name: 'keeps',
-    data() {
-        this.$store.dispatch('getKeeps')
-    },
-    computed: {
-        keeps() {
-            return this.$store.state.keeps
-        }
-    },
-    methods: {
-        logout() {
-            this.$store.dispatch('logout', this.user)
+    export default {
+        name: 'keeps',
+        data() {
+            this.$store.dispatch('getKeeps')
         },
-        createKeep() {
-            this.$store.dispatch('createKeep', {
-                name: 'Brand new KEEP!',
-                description: 'HIYA'
-            })
+        computed: {
+            keeps() {
+                return this.$store.state.keeps
+            }
         },
-        addKeep() {
-            //drag and drop? 
-        }
-    },
-    components: {}
-}
+        methods: {
+            logout() {
+                this.$store.dispatch('logout', this.user)
+            },
+            createKeep() {
+                this.$store.dispatch('createKeep', {
+                    name: 'Brand new KEEP!',
+                    description: 'HIYA'
+                })
+            },
+            addKeep() {
+                //drag and drop? 
+            }
+        },
+        components: {}
+    }
 
 </script>
 
 
 <style>
-input {
-    color: black;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 5px;
-    margin-top: 10px;
-}
 
-button {
-    font-weight: bold;
-}
+/*.navbar-default{
+    background-color: black;
+}*/
+    input {
+        color: black;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 5px;
+        margin-top: 10px;
+    }
 
-img {
-    width: 40%;
-    height: 25%;
-}
+    button {
+        font-weight: bold;
+    }
+
+    img {
+        width: 60%;
+        height: 25%;
+    }
+    #social {
+        color: black;
+        text-align: center;
+    }
+    
 </style>

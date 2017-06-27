@@ -2,33 +2,33 @@
     <div class="register">
         <div class="container-fluid">
         <h1>Create Your Account</h1>
-            <div class="well well-sm custom-well-small">
             <form @submit.prevent="register">
+            <div class="well well-sm custom-well-small">
                 <div class="input-group">
-                      <span class="input-group-addon fa fa-user-circle" aria-hidden="true"></span>
-                    <div class="col-10">
+                      <span class="input-group-addon fa fa-user-circle col-xs-2" aria-hidden="true"></span>
+                    <div class="col-xs-10">
                     <input type="text" class="form-control" v-model="user.name" required placeholder="First Name">
                 </div>
                 </div>
                 <div class="input-group">
-                    <span class="input-group-addon fa fa-envelope-open" aria-hidden="true"></span>
-                      <div class="col-10">
+                    <span class="input-group-addon fa fa-envelope-open col-xs-2" aria-hidden="true"></span>
+                      <div class="col-xs-10">
                     <input type="email" class="form-control" v-model="user.email" required placeholder="vail.is@superawesome.com">
                 </div>
                 </div>
                 <div class="input-group">
-                    <span class="input-group-addon fa fa-star" aria-hidden="true"></span>
-                      <div class="col-10">
+                    <span class="input-group-addon fa fa-star col-xs-2" aria-hidden="true"></span>
+                      <div class="col-xs-10">
                     <input type="password" class="form-control" v-model="user.password" required placeholder="password">
                 </div>
                 </div>
                 <div class="form group row">
-                      <div class="col-10">
+                      <div class="col-xs-12">
                     <button class="btn btn-default" type="submit">submit</button>
                 </div>
                 </div>
-            </form>
             </div>
+            </form>
         </div>
     </div>
 </template>

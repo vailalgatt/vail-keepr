@@ -19,4 +19,16 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+.navbar-default{
+    background-color: black;
+}
+.keepNav{
+  color: pink;
+}
+#logoutStyle{
+  background-color: whitesmoke;
+  color: black;
+  font-weight: bold;
+}
+
 </style>
