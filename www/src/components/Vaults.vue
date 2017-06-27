@@ -17,14 +17,14 @@
                         </div>
                     </div>
                 </form>
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a class="dungeon" style="color:black; cursor: pointer" @click="logout(this.user)">Logout</a>
-                    </li>
-                </ul>
+                <div class="nav navbar-nav navbar-right">
+                    <div class="col-xs-12">
+                        <button class="btn btn-primary" id="logoutStyle"@click="logout(this.user)">Logout</button>
+                    </div>
+                </div>
             </div>
         </nav>
-        <div class="well">
+        <!--<div class="well">
             <form class="col-md-3" @submit.prevent="createVault">
                 <input type="text" v-model="name" required placeholder="Vault Name">
                 <input type="text" v-model="description" required placeholder="Description of Vault">
@@ -41,7 +41,7 @@
                     </router-link>
                 </li>
             </ol>
-        </div>
+        </div>-->
     </div>
 </template>
 
