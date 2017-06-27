@@ -58,6 +58,9 @@ export default {
         }
     },
     methods: {
+        logout() {
+            this.$store.dispatch('logout', this.user)
+        },
         createKeep() {
             this.$store.dispatch('createKeep', {
                 name: 'Brand new KEEP!',

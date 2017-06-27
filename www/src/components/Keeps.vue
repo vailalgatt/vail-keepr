@@ -6,8 +6,8 @@
                     <h1 class="keepNav">Keeps</h1>
                 </div>
                 <form class="navbar-form" role="search">
-                    <div class="input-group">    
-                            <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
                         <div class="input-group-btn">
                             <button class="btn btn-default" type="submit">
                                 <i class="glyphicon glyphicon-search"></i>
@@ -17,7 +17,7 @@
                 </form>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="logoutButton" style="color:black; cursor: pointer" @click="logout(this.user)">Logout</a>
+                        <a class="logoutStyle" style="color:black; cursor: pointer" @click="logout(this.user)">Logout</a>
                     </li>
                 </ul>
             </div>
@@ -50,6 +50,9 @@ export default {
         }
     },
     methods: {
+        logout() {
+            this.$store.dispatch('logout', this.user)
+        },
         createKeep() {
             this.$store.dispatch('createKeep', {
                 name: 'Brand new KEEP!',
