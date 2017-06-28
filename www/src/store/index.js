@@ -21,6 +21,10 @@ let state = {
   user: {},
   myVaults: {},
   myKeeps: {},
+  // activeVault: {},
+  // activeKeep: {},
+  // searchResults: [],
+  // searchedTerm: '',
   error: {},
   //Dummy Data
   keeps: [{

@@ -5,6 +5,11 @@
                 <div class="navbar-header">
                     <h1 class="keepNav">Keeps</h1>
                 </div>
+                <button type="button">
+                    <router-link :to="'/keeps'">
+                        <h6>Go to Keeps</h6>
+                    </router-link>
+                </button>
                 <form class="navbar-form" role="search">
                     <div class="input-group">
                         <div class="col-xs-12">
@@ -19,29 +24,29 @@
                 </form>
                 <div class="nav navbar-nav navbar-right">
                     <div class="col-xs-12">
-                        <button class="btn btn-primary" id="logoutStyle"@click="logout(this.user)">Logout</button>
+                        <button class="btn btn-primary" id="logoutStyle" @click="logout(this.user)">Logout</button>
                     </div>
                 </div>
             </div>
         </nav>
         <!--<div class="well">
-            <form class="col-md-3" @submit.prevent="createVault">
-                <input type="text" v-model="name" required placeholder="Vault Name">
-                <input type="text" v-model="description" required placeholder="Description of Vault">
-                <input type="text" v-model="imgUrl" required placeholder="imgUrl of Vault">
-                <input type="text" v-model="articleUrl" required placeholder="articleUrl of Vault">
-            </form>
-            <ol>
-                <li v-for="keep in keeps">
-                    <router-link :to=" '/keeps/'+ keep._id">
-                        <div class="well">
-                            {{keep.name}}
-                            <button class="fa fa-trash" aria-hidden="true" @click="addKeep()"></button>
-                        </div>
-                    </router-link>
-                </li>
-            </ol>
-        </div>-->
+                <form class="col-md-3" @submit.prevent="createVault">
+                    <input type="text" v-model="name" required placeholder="Vault Name">
+                    <input type="text" v-model="description" required placeholder="Description of Vault">
+                    <input type="text" v-model="imgUrl" required placeholder="imgUrl of Vault">
+                    <input type="text" v-model="articleUrl" required placeholder="articleUrl of Vault">
+                </form>
+                <ol>
+                    <li v-for="keep in keeps">
+                        <router-link :to=" '/keeps/'+ keep._id">
+                            <div class="well">
+                                {{keep.name}}
+                                <button class="fa fa-trash" aria-hidden="true" @click="addKeep()"></button>
+                            </div>
+                        </router-link>
+                    </li>
+                </ol>
+            </div>-->
     </div>
 </template>
 
