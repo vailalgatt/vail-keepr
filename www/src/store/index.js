@@ -21,8 +21,8 @@ let state = {
   user: {},
   myVaults: {},
   myKeeps: {},
-  // activeVault: {},
-  // activeKeep: {},
+  activeVault: {},
+  activeKeep: {},
   // searchResults: [],
   // searchedTerm: '',
   error: {},
@@ -93,12 +93,36 @@ export default new Vuex.Store({
     setActiveKeeps(state, activeKeeps) {
       state.activeKeeps = activeKeeps
     },
+    setActiveVaults(state, activeVaults){
+      state.activeVaults = activeVaults
+    },
     user(state, user) {
       state.user = user
     }
   },
 
   actions: {
+    getVaults({ commit, dispatch }) {
+      api('uservaults')
+        .then(res => {
+          commit('setVaults', res.data.data)
+        })
+        .catch(handleError)
+    },
+    getVault({ commit, dispatch }, id) {
+      api('vaults/' + id)
+        .then(res => {
+          commit('setActiveVaults', res.data.data)
+        })
+        .catch(handleError)
+    },
+    createVaults({ commit, dispatch }, vault) {
+      api.post('vaults/', vault)
+        .then(res => {
+          dispatch('getVaults')
+        })
+        .catch(handleError)
+    },
     getKeeps({ commit, dispatch }) {
       api('userkeeps')
         .then(res => {
