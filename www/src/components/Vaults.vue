@@ -114,7 +114,6 @@
         },
         components: {}
     }
-
 </script>
 
 
@@ -125,7 +124,6 @@
         margin-bottom: 10px;
         font-size: 15px;
     }
-
     button {
         font-weight: bold;
     }

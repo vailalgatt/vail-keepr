@@ -42,13 +42,13 @@
                             <button @click="openVaults">
                                 <span class="fa fa-thumb-tack col-xs-4" aria-hidden="true"></span>
                             </button>
-                                <div class="col-xs-4" v-for="vault in vaults" v-if="showVaults">
-                                    <div class="well">
-                                        <router-link :to=" '/vaults/'+ vault._id">
-                                            <h1>{{vault.name}}</h1>
-                                        </router-link>
-                                    </div>
+                            <div class="col-xs-4" v-for="vault in vaults" v-if="showVaults">
+                                <div class="well">
+                                    <router-link :to=" '/vaults/'+ vault._id">
+                                        <h1>{{vault.name}}</h1>
+                                    </router-link>
                                 </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -70,14 +70,14 @@
             }
         },
         computed: {
-            vaults(){
+            vaults() {
                 return this.$store.state.keeps
             },
             keeps() {
                 return this.$store.state.keeps
             },
-            user(){
-                return this.$store.state.keeps
+            user() {
+                return this.$store.state.user
             }
         },
         methods: {
@@ -97,12 +97,14 @@
                 this.showVaults = !this.showVaults
             }
         },
-        activeVault(vaultId){
+        activeVault(vaultId) {
             this.$store.dispatch('setActiveVaults', vaultId)
         },
         components: {
+
         }
     }
+
 </script>
 
 
@@ -110,24 +112,29 @@
     /*.navbar-default{
     background-color: black;
 }*/
+
     input {
         color: black;
         font-family: 'Open Sans', sans-serif;
-        font-size: 5px;
+        font-size: 15px;
         margin-top: 10px;
     }
+
     button {
         font-weight: bold;
     }
+
     img {
         width: 60%;
         height: 25%;
     }
+
     #social {
         color: black;
         text-align: center;
         background-color: white;
     }
+
     router-link {
         color: white;
     }

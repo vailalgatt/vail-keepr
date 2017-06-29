@@ -122,7 +122,7 @@ export default new Vuex.Store({
         })
         .catch(handleError)
     },
-    createVaults({ commit, dispatch }, vault) {
+    createVault({ commit, dispatch }, vault) {
       api.post('vaults/', vault)
         .then(res => {
           dispatch('getVaults')
