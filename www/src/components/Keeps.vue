@@ -39,17 +39,16 @@
                         </span>
                             <span class="fa fa-eye col-xs-4" aria-hidden="true">
                         </span>
-                            <button @click="openVault">
-                                    <span class="fa fa-thumb-tack col-xs-4" aria-hidden="true">
-                        </span>
-                                </button>
-                            <!--<div v-show="showVaults">-->
-                                <!--<ol>
-                                    <li v-for="vault in vaults">
-                                        {{vault.name}}
-                                    </li>
-                                </ol>
-                            </div>-->
+                            <button @click="openVaults">
+                                <span class="fa fa-thumb-tack col-xs-4" aria-hidden="true"></span>
+                            </button>
+                                <div class="col-xs-4" v-for="vault in vaults" v-if="showVaults">
+                                    <div class="well">
+                                        <router-link :to=" '/vaults/'+ vault._id">
+                                            <h1>{{vault.name}}</h1>
+                                        </router-link>
+                                    </div>
+                                </div>
                         </div>
                     </div>
                 </div>
@@ -60,16 +59,24 @@
 
 
 <script>
+    import Vaults from './Vaults'
     export default {
         name: 'keeps',
         data() {
             this.$store.dispatch('getKeeps')
+            this.$store.dispatch('getVaults')
             return {
                 showVaults: false
             }
         },
         computed: {
+            vaults(){
+                return this.$store.state.keeps
+            },
             keeps() {
+                return this.$store.state.keeps
+            },
+            user(){
                 return this.$store.state.keeps
             }
         },
@@ -84,13 +91,18 @@
                 })
             },
             addKeep() {
-                //drag and drop? 
+                //add from toggle list of showVaults
             },
             openVaults() {
                 this.showVaults = !this.showVaults
             }
         },
-        components: {}
+        activeVault(vaultId){
+            this.$store.dispatch('setActiveVaults', vaultId)
+        },
+        components: {
+
+        }
     }
 
 </script>

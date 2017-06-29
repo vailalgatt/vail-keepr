@@ -53,7 +53,6 @@ export default {
     },
     mounted() {
         this.$store.dispatch('getVaults')
-            debugger
     },
     computed: {
         vaults() {
