@@ -5,13 +5,13 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-// let api = axios.create({
-//   baseURL: 'http://localhost:3000/api/',
-//   timeout: 2000,
-//   withCredentials: true
-// })
-let auth = axios.create({
+let api = axios.create({
   baseURL: 'http://localhost:3000/api/',
+  timeout: 2000,
+  withCredentials: true
+})
+let auth = axios.create({
+  baseURL: 'http://localhost:3000/',
   timeout: 2000,
   withCredentials: true
 })
@@ -26,6 +26,7 @@ let state = {
   // searchResults: [],
   // searchedTerm: '',
   error: {},
+  vaults: [],
   //Dummy Data
   keeps: [{
     title: 'Learn to Draw',
@@ -93,7 +94,10 @@ export default new Vuex.Store({
     setActiveKeeps(state, activeKeeps) {
       state.activeKeeps = activeKeeps
     },
-    setActiveVaults(state, activeVaults){
+    setVaults(state, vaults) {
+      state.vaults = vaults
+    },
+    setActiveVaults(state, activeVaults) {
       state.activeVaults = activeVaults
     },
     user(state, user) {
@@ -105,12 +109,14 @@ export default new Vuex.Store({
     getVaults({ commit, dispatch }) {
       api('uservaults')
         .then(res => {
+
           commit('setVaults', res.data.data)
+          console.log(res.data.data)
         })
         .catch(handleError)
     },
-    getVault({ commit, dispatch }, id) {
-      api('vaults/' + id)
+    getVault({ commit, dispatch }, vaultId) {
+      api('vaults/' + vaultId)
         .then(res => {
           commit('setActiveVaults', res.data.data)
         })
@@ -120,6 +126,9 @@ export default new Vuex.Store({
       api.post('vaults/', vault)
         .then(res => {
           dispatch('getVaults')
+        .then(res => {
+          commit('setVaults', res.data.data)
+        })
         })
         .catch(handleError)
     },
@@ -151,7 +160,7 @@ export default new Vuex.Store({
           if (res.data.error) {
           }
           commit('user', res.data.data)
-          router.push('/keeps')
+          router.push('/vaults')
         })
         .catch(handleError)
     },

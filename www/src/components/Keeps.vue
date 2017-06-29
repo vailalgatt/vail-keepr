@@ -31,7 +31,6 @@
             <div class="well">
                 <h1>{{keep.title}}</h1>
                 <img :src='keep.imgUrl'>
-                <h3>{{keep.name}}</h3>
                 <p>{{keep.body}}</p>
                 <div class="well" id="social">
                     <div class="row">
@@ -44,13 +43,13 @@
                                     <span class="fa fa-thumb-tack col-xs-4" aria-hidden="true">
                         </span>
                                 </button>
-                            <div v-show="showVaults">
+                            <!--<div v-show="showVaults">-->
                                 <!--<ol>
                                     <li v-for="vault in vaults">
                                         {{vault.name}}
                                     </li>
-                                </ol>-->
-                            </div>
+                                </ol>
+                            </div>-->
                         </div>
                     </div>
                 </div>

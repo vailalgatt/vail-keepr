@@ -20,7 +20,7 @@ export default {
     path: '/sharedvaults',
     reqType: 'get',
     method(req, res, next) {
-      Vaults.find({collaborators: {$in: req.session.uid}})
+      Vaults.find({collaborators: {$in: req.session.id}})
       .then(vaults => {
         res.send(handleResponse(action, vaults))
       }).catch(error => {
