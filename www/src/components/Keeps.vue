@@ -101,10 +101,8 @@
             this.$store.dispatch('setActiveVaults', vaultId)
         },
         components: {
-
         }
     }
-
 </script>
 
 
@@ -112,29 +110,24 @@
     /*.navbar-default{
     background-color: black;
 }*/
-
     input {
         color: black;
         font-family: 'Open Sans', sans-serif;
         font-size: 5px;
         margin-top: 10px;
     }
-
     button {
         font-weight: bold;
     }
-
     img {
         width: 60%;
         height: 25%;
     }
-
     #social {
         color: black;
         text-align: center;
         background-color: white;
     }
-
     router-link {
         color: white;
     }

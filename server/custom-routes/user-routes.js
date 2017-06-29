@@ -1,6 +1,5 @@
 
 let Vaults = require('../models/vault')
-let Keeps = require('../models/keep')
 
 
 export default {
@@ -20,16 +19,15 @@ export default {
   userKeeps: {
     path: '/userkeeps',
     reqType: 'get',
-    method(req, res, next){
-      let action = 'Find user keeps'
-      Keeps.find({creatorId: req.session.uid})
-      .then(keeps => {
-        res.send(handleResponse(action, keeps))
+    method(req, res, next) {
+      Vaults.find({collaborators: {$in: req.session.uid}})
+      .then(vaults => {
+        res.send(handleResponse(action, vaults))
       }).catch(error => {
-        return next (handleResponse(action, null, error))
+        return next(handleResponse(action, null, error))
       })
     }
-  },
+  }
 }
 
 

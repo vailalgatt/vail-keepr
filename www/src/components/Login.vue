@@ -60,7 +60,7 @@ input {
     color: black;
     font-family: 'Open Sans', sans-serif;
     margin-bottom: 10px;
-    font-size: 5px;
+    font-size: 15px;
 }
 
 button {
