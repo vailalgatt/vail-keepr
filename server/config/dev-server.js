@@ -31,10 +31,13 @@ function logger(req, res, next) {
 app.use(session)
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
+
+// YO DONT FORGET THIS LINE
+app.use(express.static(__dirname + '/../public'))
+
 app.use('*', logger)
 app.use('*', cors(corsOptions))
 app.use('/', Auth)
-
 // LOCKS API TO REQUIRE USER AUTH
 app.use(Validate)
 app.use('/api', api)
