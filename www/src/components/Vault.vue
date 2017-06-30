@@ -28,7 +28,7 @@
             </div>
         </nav>
         <div class="col-xs-4" v-for="vault in vaults">
-            <h1>{{vault.title}}</h1>
+            <h1>{{vault.name}}</h1>
         </div>
         <div class="row">
             <div v-for="keep in keeps">

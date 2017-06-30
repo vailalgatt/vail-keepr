@@ -6,7 +6,7 @@
                     <h1 class="keepNav">Keeps</h1>
                     <button type="button">
                         <router-link :to="'/vaults/'">
-                            <h6>Go to Vaults -></h6>
+                            <h6>Go to Vaults</h6>
                         </router-link>
                     </button>
                 </div>
@@ -39,9 +39,9 @@
                                 <span class="fa fa-thumb-tack col-xs-4" aria-hidden="true"></span>
                             </button>
                             <div class="col-xs-12" v-for="vault in vaults" v-if="showVaults">
-                                <div class="well">
+                                <div class="well" id="showingVaults">
                                     <router-link :to=" '/vaults/'+ vault._id">
-                                        <h5>{{vault.name}}</h5>
+                                        <h5>{{vault.name}} <button @click="addKeep" class="fa fa-plus" aria-hidden="true"></button></h5>
                                     </router-link>
                                 </div>
                             </div>
@@ -122,5 +122,9 @@
 
     router-link {
         color: white;
+    }
+
+    #showingVaults {
+        background-color:grey;
     }
 </style>

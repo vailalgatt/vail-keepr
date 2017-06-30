@@ -2,10 +2,10 @@
   <div class="hello">
     <h1>Welcome to Keepr</h1>
     <p>Get Started</p>
-    <ul>
+    <div class="col-xs-12">
       <li><router-link to="login">Login</router-link></li>
       <li><router-link to="register">Register</router-link></li>
-    </ul>
+    </div>
     <hr>
   </div>
 </template>

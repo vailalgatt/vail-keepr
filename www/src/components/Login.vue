@@ -6,8 +6,8 @@
                 <div class="well well-sm custom-well-small">
                     <div class="input-group">
                         <span class="input-group-addon fa fa-envelope-open col-xs-2" aria-hidden="true"></span>
-                        <div id="email" class="col-xs-10">
-                            <input type="email" class="form-control" v-model="user.email" required placeholder="vail.is@superawesome.com">
+                        <div class="col-xs-10">
+                            <input type="email" class="form-control" v-model="user.email" required placeholder="email@somewhere.com">
                         </div>
                     </div>
                     <div class="input-group">
@@ -52,9 +52,12 @@ export default {
 
 
 <style>
+.login{
+    background-color: grey;
+}
 h1{
     color: #FF5AF5;
-        text-align: center;
+       text-align: center;
         font-family: 'Asap', sans-serif;
         font-weight: bold;
         text-shadow: 1px 1px 1px black;
@@ -69,7 +72,6 @@ button{
     margin-top: 10px;
     font-weight: bold;
 }
-
     span {
         color: black;
         text-align: left;
