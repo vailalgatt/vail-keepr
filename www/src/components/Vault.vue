@@ -1,9 +1,9 @@
 <template>
-    <div class="vault">
+    <div class="keeps">
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <h1 class="keepNav">Vaults</h1>
+                    <h1 class="keepNav">Vault</h1>
                     <button type="button">
                         <router-link :to="'/keeps'">
                             <h6>Go to Keeps</h6>
@@ -12,9 +12,7 @@
                 </div>
                 <form class="navbar-form" role="search">
                     <div class="input-group">
-                        <div class="col-xs-12">
-                            <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
-                        </div>
+                        <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
                         <div class="input-group-btn">
                             <button class="btn btn-default" type="submit">
                                 <i class="glyphicon glyphicon-search"></i>
@@ -87,15 +85,17 @@
 
 </script>
 
-<style scoped>
+<style>
     input {
         color: black;
         font-family: 'Open Sans', sans-serif;
-        margin-bottom: 10px;
-        font-size: 15px;
+        font-size: 12px;
+        margin-top: 15px;
     }
 
     button {
         font-weight: bold;
+        margin-top: 15px;
     }
+    
 </style>

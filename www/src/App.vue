@@ -23,12 +23,16 @@ export default {
     background-color: black;
 }
 .keepNav{
-  color: pink;
+  color: #FF5AF5;
 }
 #logoutStyle{
   background-color: whitesmoke;
   color: black;
   font-weight: bold;
+}
+
+a {
+  color: #FF5AF5;
 }
 
 </style>

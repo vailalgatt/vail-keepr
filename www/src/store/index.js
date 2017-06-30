@@ -77,9 +77,9 @@ export default new Vuex.Store({
       api.post('vaults/', vault)
         .then(res => {
           dispatch('getVaults')
-            .then(res => {
-              commit('setVaults', res.data.data)
-            })
+        .then(res => {
+          commit('setVaults', res.data.data)
+        })
         })
         .catch(handleError)
     },

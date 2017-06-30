@@ -32,17 +32,17 @@
         <div class="row">
             <form @submit.prevent="createKeep">
                 <div class="col-xs-12">
-                    <input type="text" v-model="keepName" placeholder="add name">
-                    <input type="text" v-model="keepDescription" placeholder="add description">
-                    <input type="text" v-model="keepImg" placeholder="add image">
+                    <input type="text" v-model="keepName" placeholder="Keep name">
+                    <input type="text" v-model="keepDescription" placeholder="Keep description">
+                    <input type="text" v-model="keepImg" placeholder="Keep image">
                     <button type="submit">Add Keep</button>
                 </div>
             </form>
             <form @submit.prevent="createVault">
                 <div class="col-xs-12">
-                    <input type="text" v-model="vaultName" placeholder="add name">
-                    <input type="text" v-model="vaultDescription" placeholder="add description">
-                    <input type="text" v-model="vaultImg" placeholder="add image">
+                    <input type="text" v-model="vaultName" placeholder="Vault name">
+                    <input type="text" v-model="vaultDescription" placeholder="Vault description">
+                    <input type="text" v-model="vaultImg" placeholder="image (under construction)">
                     <button type="submit">Add Vault</button>
                 </div>
             </form>
@@ -52,13 +52,11 @@
                 <router-link :to=" '/vaults/'+ vault._id">
                     <h1>{{vault.name}}</h1>
                     <h3>{{vault.description}}</h3>
-                    <img :src='vault.imgUrl'>
                 </router-link>
             </div>
         </div>
     </div>
 </template>
-
 
 <script>
     export default {
@@ -92,42 +90,43 @@
             activeVault(vaultId) {
                 this.$store.dispatch('setActiveVaults', vaultId)
             },
-            createKeep() {
-                this.$store.dispatch('createKeep', {
-                    name: this.keepName,
-                    description: this.keepDescription,
-                    img: this.keepImg
-                }),
-                    this.keepName = '',
-                    this.keepDescription = '',
-                    this.keepImg = ''
-            },
-            createVault() {
-                this.$store.dispatch('createVault', {
-                    name: this.vaultName,
-                    description: this.vaultDescription,
-                    img: this.vaultImg
-                }),
-                    this.vaultName = '',
-                    this.vaultDescription = '',
-                    this.vaultImg = ''
-            }
+        createKeep() {
+            this.$store.dispatch('createKeep', {
+                name: this.keepName,
+                description: this.keepDescription,
+                img: this.keepImg
+            }),
+                this.keepName = '',
+                this.keepDescription = '',
+                this.keepImg = ''
+        },
+        createVault() {
+            this.$store.dispatch('createVault', {
+                name: this.vaultName,
+                description: this.vaultDescription,
+                img: this.vaultImg
+            }),
+                this.vaultName = '',
+                this.vaultDescription = '',
+                this.vaultImg = ''
+        }
         },
         components: {}
     }
-
 </script>
+
 
 
 <style>
     input {
         color: black;
         font-family: 'Open Sans', sans-serif;
-        margin-bottom: 10px;
+        margin-bottom: 12px;
         font-size: 15px;
     }
 
     button {
         font-weight: bold;
+        margin-top: 15px;
     }
 </style>

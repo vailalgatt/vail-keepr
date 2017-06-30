@@ -107,8 +107,8 @@
     input {
         color: black;
         font-family: 'Open Sans', sans-serif;
-        font-size: 15px;
-        margin-top: 10px;
+        font-size: 10px;
+        margin-top: 15px;
     }
 
     button {
@@ -118,12 +118,6 @@
     img {
         width: 60%;
         height: 25%;
-    }
-
-    #social {
-        color: black;
-        text-align: center;
-        background-color: white;
     }
 
     router-link {

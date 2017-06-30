@@ -27,6 +27,10 @@
                     <button class="btn btn-default" type="submit">submit</button>
                 </div>
                 </div>
+                 <h5>Congrats on your new account! Log in </h5>
+                <router-link :to=" '/login/'">
+                    <h5>here!</h5>
+                </router-link>
             </div>
             </form>
         </div>
@@ -55,14 +59,14 @@
 
 <style scoped>
 h1{
-    color: black;
+    color: #FF5AF5;
     text-align: center;
     font-family: 'Asap', sans-serif;
     font-weight: bold;
     text-shadow: 1px 1px 1px black; 
 }
 button{
-    margin-top: 10px;
+    margin-bottom: 10px;
     font-weight: bold;
 }
 span{
