@@ -25,6 +25,7 @@ export default {
 .keepNav{
   color: #FF5AF5;
 }
+
 #logoutStyle{
   background-color: whitesmoke;
   color: black;
