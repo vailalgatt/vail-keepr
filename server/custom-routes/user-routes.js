@@ -3,7 +3,7 @@ let Vaults = require('../models/vault')
 
 
 export default {
-  userVaults: {
+      userVaults: {
     path: '/uservaults',
     reqType: 'get',
     method(req, res, next){
@@ -28,7 +28,7 @@ export default {
         return next (handleResponse(action, null, error))
       })
     }
-  }
+  },
 }
 
 

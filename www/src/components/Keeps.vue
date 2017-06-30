@@ -30,19 +30,15 @@
         <div class="col-xs-4" v-for="keep in keeps">
             <div class="well">
                 <h1>{{keep.name}}</h1>
-                <img :src='keep.imgUrl'>
+                <img class="fit" :src='keep.imgUrl'>
                 <p>{{keep.description}}</p>
                 <div class="well" id="social">
                     <div class="row">
                         <div class="col-xs-12">
-                            <span class="fa fa-share-alt col-xs-4" aria-hidden="true">
-                        </span>
-                            <span class="fa fa-eye col-xs-4" aria-hidden="true">
-                        </span>
                             <button @click="openVaults">
                                 <span class="fa fa-thumb-tack col-xs-4" aria-hidden="true"></span>
                             </button>
-                            <div class="col-xs-4" v-for="vault in vaults" v-if="showVaults">
+                            <div class="col-xs-12" v-for="vault in vaults" v-if="showVaults">
                                 <div class="well">
                                     <router-link :to=" '/vaults/'+ vault._id">
                                         <h5>{{vault.name}}</h5>
@@ -65,6 +61,7 @@
         data() {
             this.$store.dispatch('getKeeps')
             this.$store.dispatch('getVaults')
+            this.$store.dispatch('getAllKeeps')
             return {
                 showVaults: false
             }

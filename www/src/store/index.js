@@ -23,6 +23,7 @@ let state = {
   myKeeps: {},
   activeVault: {},
   activeKeep: {},
+  removeKeep: {},
   // searchResults: [],
   // searchedTerm: '',
   error: {},
@@ -62,7 +63,6 @@ export default new Vuex.Store({
       api('uservaults')
         .then(res => {
           commit('setVaults', res.data.data)
-          console.log(res.data.data)
         })
         .catch(handleError)
     },
@@ -77,34 +77,39 @@ export default new Vuex.Store({
       api.post('vaults/', vault)
         .then(res => {
           dispatch('getVaults')
-        .then(res => {
-          commit('setVaults', res.data.data)
-        })
+            .then(res => {
+              commit('setVaults', res.data.data)
+            })
         })
         .catch(handleError)
     },
     getKeeps({ commit, dispatch }) {
       api('userkeeps')
         .then(res => {
-          console.log(res.data.data)
           commit('setKeeps', res.data.data)
         })
         .catch(handleError)
     },
-    getKeep({ commit, dispatch }, id) {
-      api('keeps/' + id)
+    removeKeep({ commit, dispatch }, keep) {
+      api.delete('vault/' + keep._id)
         .then(res => {
-          commit('setActiveKeeps', res.data.data)
+          dispatch('removeKeep')
         })
         .catch(handleError)
+    },
+    getAllKeeps({ commit, dispatch }) {
+      api('keeps')
+        .then(res => {
+          commit('setKeeps', res.data.data)
+        })
     },
     createKeep({ commit, dispatch }, keep) {
       api.post('keeps/', keep)
         .then(res => {
           dispatch('getKeeps')
-        .then(res =>{
-          commit('setKeeps', res.data.data)
-        })
+            .then(res => {
+              commit('setKeeps', res.data.data)
+            })
         })
         .catch(handleError)
     },
