@@ -52,6 +52,7 @@
                 <router-link :to=" '/vaults/'+ vault._id">
                     <h1>{{vault.name}}</h1>
                     <h3>{{vault.description}}</h3>
+                    <img :src='vault.imgUrl'>
                 </router-link>
             </div>
         </div>
@@ -91,29 +92,30 @@
             activeVault(vaultId) {
                 this.$store.dispatch('setActiveVaults', vaultId)
             },
-        createKeep() {
-            this.$store.dispatch('createKeep', {
-                name: this.keepName,
-                description: this.keepDescription,
-                img: this.keepImg
-            }),
-                this.keepName = '',
-                this.keepDescription = '',
-                this.keepImg = ''
-        },
-        createVault() {
-            this.$store.dispatch('createVault', {
-                name: this.vaultName,
-                description: this.vaultDescription,
-                img: this.vaultImg
-            }),
-                this.vaultName = '',
-                this.vaultDescription = '',
-                this.vaultImg = ''
-        }
+            createKeep() {
+                this.$store.dispatch('createKeep', {
+                    name: this.keepName,
+                    description: this.keepDescription,
+                    img: this.keepImg
+                }),
+                    this.keepName = '',
+                    this.keepDescription = '',
+                    this.keepImg = ''
+            },
+            createVault() {
+                this.$store.dispatch('createVault', {
+                    name: this.vaultName,
+                    description: this.vaultDescription,
+                    img: this.vaultImg
+                }),
+                    this.vaultName = '',
+                    this.vaultDescription = '',
+                    this.vaultImg = ''
+            }
         },
         components: {}
     }
+
 </script>
 
 
@@ -124,6 +126,7 @@
         margin-bottom: 10px;
         font-size: 15px;
     }
+
     button {
         font-weight: bold;
     }

@@ -29,9 +29,9 @@
         </nav>
         <div class="col-xs-4" v-for="keep in keeps">
             <div class="well">
-                <h1>{{keep.title}}</h1>
+                <h1>{{keep.name}}</h1>
                 <img :src='keep.imgUrl'>
-                <p>{{keep.body}}</p>
+                <p>{{keep.description}}</p>
                 <div class="well" id="social">
                     <div class="row">
                         <div class="col-xs-12">
@@ -45,7 +45,7 @@
                             <div class="col-xs-4" v-for="vault in vaults" v-if="showVaults">
                                 <div class="well">
                                     <router-link :to=" '/vaults/'+ vault._id">
-                                        <h1>{{vault.name}}</h1>
+                                        <h5>{{vault.name}}</h5>
                                     </router-link>
                                 </div>
                             </div>
@@ -71,7 +71,7 @@
         },
         computed: {
             vaults() {
-                return this.$store.state.keeps
+                return this.$store.state.vaults
             },
             keeps() {
                 return this.$store.state.keeps
@@ -83,12 +83,6 @@
         methods: {
             logout() {
                 this.$store.dispatch('logout', this.user)
-            },
-            createKeep() {
-                this.$store.dispatch('createKeep', {
-                    name: 'Brand new KEEP!',
-                    description: 'HIYA'
-                })
             },
             addKeep() {
                 //add from toggle list of showVaults
